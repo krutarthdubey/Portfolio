@@ -2,12 +2,12 @@
   "name": "another-portfolio",
   "version": "1.0.0",
   "private": true,
-  "devDependencies": {
+  "dependencies": {
     "tailwindcss": "^4.0.0",
     "@tailwindcss/cli": "^4.0.0"
   },
   "scripts": {
-    "dev": "tailwindcss-cli -i ./src/input.css -o ./dist/output.css --watch",
+    "dev": "@tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch",
     "build": "@tailwindcss/cli -i ./src/input.css -o ./dist/output.css"
   }
 }

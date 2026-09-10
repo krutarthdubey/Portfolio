@@ -8,6 +8,6 @@
   },
   "scripts": {
     "dev": "tailwindcss-cli -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "tailwindcss-cli -i ./src/input.css -o ./dist/output.css"
+    "build": "@tailwindcss/cli -i ./src/input.css -o ./dist/output.css"
   }
 }

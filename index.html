@@ -101,7 +101,113 @@
       --project-glow: rgba(239, 68, 68, 0.34);
       background: linear-gradient(135deg, #241414, #4a1e20);
     }
+  
+    :root {
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+    }
+    :root[data-theme="light"] body {
+      background-color: #f8fafc !important;
+      color: #171717 !important;
+    }
+    :root[data-theme="light"] .bg-bgMain {
+      background-color: #f8fafc !important;
+    }
+    :root[data-theme="light"] .bg-bgSecondary {
+      background-color: #f1f5f9 !important;
+    }
+    :root[data-theme="light"] .text-textMain {
+      color: #171717 !important;
+    }
+    :root[data-theme="light"] .text-textMuted {
+      color: #52525b !important;
+    }
+    :root[data-theme="light"] .border-borderDark {
+      border-color: #d1d5db !important;
+    }
+    :root[data-theme="light"] .text-accent,
+    :root[data-theme="light"] .section-title {
+      color: #15803d !important;
+    }
+    :root[data-theme="light"] .btn-primary {
+      background-color: #15803d;
+      color: #ffffff;
+    }
+    :root[data-theme="light"] .btn-primary:hover {
+      background-color: #166534;
+    }
+    :root[data-theme="light"] .btn-secondary,
+    :root[data-theme="light"] .footer-btn {
+      border-color: #15803d;
+      color: #15803d;
+    }
+    :root[data-theme="light"] .btn-secondary:hover,
+    :root[data-theme="light"] .footer-btn:hover {
+      background-color: #15803d;
+      color: #ffffff;
+    }
+    :root[data-theme="light"] .profile-img {
+      border-color: #15803d;
+    }
+    :root[data-theme="light"] .skill-card {
+      border-color: #d1d5db;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+    }
+    :root[data-theme="light"] .skill-card span {
+      color: #334155;
+    }
+    :root[data-theme="light"] .flip-front,
+    :root[data-theme="light"] .flip-back {
+      background: #ffffff;
+      border-color: #d1d5db;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    :root[data-theme="light"] .input {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      color: #171717;
+    }
+    :root[data-theme="light"] .input:focus {
+      border-color: #15803d;
+    }
+    .theme-toggle input {
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      opacity: 0;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    .theme-toggle input:focus-visible + label {
+      outline: 3px solid #22C55E;
+      outline-offset: 3px;
+    }
+    body,
+    header,
+    section,
+    footer,
+    .flip-front,
+    .flip-back,
+    .skill-card,
+    .input {
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
   </style>
+<script>
+  try {
+    if (localStorage.getItem("portfolio-theme") === "light") {
+      document.documentElement.dataset.theme = "light";
+    }
+  } catch (error) {
+    // The theme switch still works when browser storage is unavailable.
+  }
+</script>
+
 </head>
 
 <body class="bg-bgMain text-textMain">
@@ -122,7 +228,7 @@
 
       <!-- DAY/NIGHT TOGGLE -->
       <div class="theme-toggle">
-        <input type="checkbox" id="toggle">
+        <input type="checkbox" id="toggle" aria-label="Light theme" title="Toggle light and dark theme">
         <label for="toggle"></label>
       </div>
     </div>
@@ -304,6 +410,25 @@ am eager to leverage my analytical and technical skills, along with my passion f
     <a class="footer-btn">Email</a>
   </div>
 </footer>
+
+<script>
+  (() => {
+    const toggle = document.getElementById("toggle");
+    const root = document.documentElement;
+    if (!toggle) return;
+
+    toggle.checked = root.dataset.theme === "light";
+    toggle.addEventListener("change", () => {
+      const theme = toggle.checked ? "light" : "dark";
+      root.dataset.theme = theme;
+      try {
+        localStorage.setItem("portfolio-theme", theme);
+      } catch (error) {
+        // Theme changes remain available for this page view.
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>

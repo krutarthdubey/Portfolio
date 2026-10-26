@@ -12,6 +12,96 @@
 
   <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .skill-card {
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid #262626;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #161616, #101410);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: #22C55E;
+    }
+    .skill-card i {
+      color: #22C55E;
+      font-size: 1.8rem;
+    }
+    .skill-card span {
+      color: #EDEDED;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .project-visual {
+      --project-accent: #86efac;
+      --project-glow: rgba(34, 197, 94, 0.34);
+      width: min(100%, 320px);
+      aspect-ratio: 8 / 5;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid color-mix(in srgb, var(--project-accent), transparent 68%);
+      border-radius: 14px;
+      background: linear-gradient(135deg, #101613, #183325);
+      text-align: center;
+    }
+    .project-visual::before {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: -100px;
+      right: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--project-glow), transparent 68%);
+    }
+    .project-visual .project-icon,
+    .project-visual strong,
+    .project-visual span {
+      position: relative;
+      z-index: 1;
+    }
+    .project-visual .project-icon {
+      color: var(--project-accent);
+      font-size: 3rem;
+      margin-bottom: 4px;
+    }
+    .project-visual strong {
+      color: #EDEDED;
+      font-size: 1.05rem;
+      letter-spacing: 0.16em;
+    }
+    .project-visual span {
+      color: #A1A1AA;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+    }
+    .project-visual--cinema {
+      --project-accent: #c4b5fd;
+      --project-glow: rgba(139, 92, 246, 0.36);
+      background: linear-gradient(135deg, #171324, #302352);
+    }
+    .project-visual--textile {
+      --project-accent: #7dd3fc;
+      --project-glow: rgba(14, 165, 233, 0.36);
+      background: linear-gradient(135deg, #102029, #164050);
+    }
+    .project-visual--youtube {
+      --project-accent: #f87171;
+      --project-glow: rgba(239, 68, 68, 0.34);
+      background: linear-gradient(135deg, #241414, #4a1e20);
+    }
+  </style>
 </head>
 
 <body class="bg-bgMain text-textMain">
@@ -84,62 +174,41 @@ am eager to leverage my analytical and technical skills, along with my passion f
 <!-- SKILLS -->
 <section id="skills" class="py-20">
   <h2 class="section-title">Skills</h2>
-
-  <div class="max-w-5xl mx-auto px-6 mt-12 grid grid-cols-2 sm:grid-cols-3 gap-12 text-center">
-
-    <div class="skill-ring" style="--value:90">
-      <div class="ring">
-        <i class="fab fa-html5"></i>
-        <span>HTML</span>
-      </div>
-    </div>
-
-    <div class="skill-ring" style="--value:85">
-      <div class="ring">
-        <i class="fab fa-css3-alt"></i>
-        <span>CSS</span>
-      </div>
-    </div>
-
-    <div class="skill-ring" style="--value:70">
-      <div class="ring">
-        <i class="fab fa-js"></i>
-        <span>JavaScript</span>
-      </div>
-    </div>
-
-    <div class="skill-ring" style="--value:75">
-      <div class="ring">
-        <i class="fas fa-wind"></i>
-        <span>Tailwind</span>
-      </div>
-    </div>
-
+  <div class="max-w-5xl mx-auto px-6 mt-12 grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
+    <div class="skill-card"><i class="fab fa-react" aria-hidden="true"></i><span>React</span></div>
+    <div class="skill-card"><i class="fas fa-code" aria-hidden="true"></i><span>TypeScript</span></div>
+    <div class="skill-card"><i class="fas fa-layer-group" aria-hidden="true"></i><span>Next.js</span></div>
+    <div class="skill-card"><i class="fas fa-wind" aria-hidden="true"></i><span>Tailwind CSS</span></div>
+    <div class="skill-card"><i class="fab fa-node-js" aria-hidden="true"></i><span>Node.js</span></div>
+    <div class="skill-card"><i class="fas fa-server" aria-hidden="true"></i><span>Express.js</span></div>
+    <div class="skill-card"><i class="fas fa-database" aria-hidden="true"></i><span>MongoDB</span></div>
+    <div class="skill-card"><i class="fas fa-cubes" aria-hidden="true"></i><span>NestJS</span></div>
+    <div class="skill-card"><i class="fas fa-plug" aria-hidden="true"></i><span>REST APIs</span></div>
+    <div class="skill-card"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>JWT Authentication</span></div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<!-- PROJECTS -->
 <section id="projects" class="bg-bgSecondary py-20">
   <h2 class="section-title">Projects</h2>
-
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-7xl mx-auto px-6 mt-10">
 
     <!-- PROJECT CARD 1 -->
-    <div class="scroll-reveal" style="--d:0">
+    <div class="scroll-reveal" style="--d:0.0">
       <div class="flip-card">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="./assets/dsa.png" alt="DSA Visualiser" width="200" height="200">
+            <div class="project-visual project-visual--task" role="img" aria-label="Task management workspace preview">
+              <i class="fas fa-list-check project-icon" aria-hidden="true"></i>
+              <strong>ABLESPACE</strong>
+              <span>TASK MANAGER</span>
+            </div>
           </div>
           <div class="flip-back">
-            <h3 class="text-lg font-semibold text-accent">DSA Visualiser</h3>
-            <p class="text-sm text-textMuted mt-2">
-              An interactive web-based Data Structures & Algorithms visualizer built with Flask, JavaScript, and CSS.
-              This tool helps visualize how sorting algorithms work step by step with animated transitions and adjustable speed control.
-            </p>
-            <a href="https://github.com/krutarthdubey/DSA-Visualizer" target="_blank" class="btn-secondary mt-4">
-              View Project
+            <h3 class="text-lg font-semibold text-accent">AbleSpace Task Manager</h3>
+            <p class="text-sm text-textMuted mt-2">A full-stack workspace with JWT sign-in, task and project management, priorities, due dates, search, filters, comments, and responsive list and grid views. Built with Next.js, TypeScript, NestJS, and MongoDB.</p>
+            <a href="https://github.com/krutarthdubey/Task-Management-System" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-4">
+              Source Code
             </a>
           </div>
         </div>
@@ -151,15 +220,17 @@ am eager to leverage my analytical and technical skills, along with my passion f
       <div class="flip-card">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="./assets/et.png" alt="Expense Tracker" width="200" height="200">
+            <div class="project-visual project-visual--cinema" role="img" aria-label="Movie discovery app preview">
+              <i class="fas fa-film project-icon" aria-hidden="true"></i>
+              <strong>CINESCOPE</strong>
+              <span>MOVIE DISCOVERY</span>
+            </div>
           </div>
           <div class="flip-back">
-            <h3 class="text-lg font-semibold text-accent">Expense Tracker</h3>
-            <p class="text-sm text-textMuted mt-2">
-              A Python desktop application to record, manage, and track daily expenses — built with Tkinter and SQLite.
-            </p>
-            <a href="https://github.com/krutarthdubey/Expense-Tracker" target="_blank" class="btn-secondary mt-4">
-              View Project
+            <h3 class="text-lg font-semibold text-accent">CineScope Movie Discovery</h3>
+            <p class="text-sm text-textMuted mt-2">A React app for discovering films by category, searching titles, filtering by genre, viewing details, and saving a persistent wishlist. Its Express and MongoDB API handles TMDB requests, caching, retries, and normalized responses.</p>
+            <a href="https://github.com/krutarthdubey/Movie-Discovery-App" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-4">
+              Source Code
             </a>
           </div>
         </div>
@@ -171,16 +242,17 @@ am eager to leverage my analytical and technical skills, along with my passion f
       <div class="flip-card">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="./assets/ra.png" alt="Resume Analyser" width="200" height="200">
+            <div class="project-visual project-visual--textile" role="img" aria-label="Textile marketplace preview">
+              <i class="fas fa-store project-icon" aria-hidden="true"></i>
+              <strong>TEXTILEHUB</strong>
+              <span>BUYER + SUPPLIER MARKETPLACE</span>
+            </div>
           </div>
           <div class="flip-back">
-            <h3 class="text-lg font-semibold text-accent">Resume Analyser</h3>
-            <p class="text-sm text-textMuted mt-2">
-              An AI-powered Flask web application that analyzes resumes using NLP to compare them with job descriptions
-              and calculate a match score.
-            </p>
-            <a href="https://github.com/krutarthdubey/AI-Resume-Analyzer" target="_blank" class="btn-secondary mt-4">
-              View Project
+            <h3 class="text-lg font-semibold text-accent">TextileHub Marketplace</h3>
+            <p class="text-sm text-textMuted mt-2">A buyer and supplier marketplace with product search and filters, cart, checkout, order tracking, and supplier dashboards for managing products and orders. Built with React, Tailwind CSS, Express, and MongoDB.</p>
+            <a href="https://github.com/krutarthdubey/Textile-Marketplace" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-4">
+              Source Code
             </a>
           </div>
         </div>
@@ -192,16 +264,17 @@ am eager to leverage my analytical and technical skills, along with my passion f
       <div class="flip-card">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="./assets/travel.png" alt="Trip Planner" width="200" height="200">
+            <div class="project-visual project-visual--youtube" role="img" aria-label="Video platform preview">
+              <i class="fab fa-youtube project-icon" aria-hidden="true"></i>
+              <strong>PLAYBACK</strong>
+              <span>VIDEO PLATFORM</span>
+            </div>
           </div>
           <div class="flip-back">
-            <h3 class="text-lg font-semibold text-accent">Trip Planner</h3>
-            <p class="text-sm text-textMuted mt-2">
-              A React-based web application that helps users plan trips, create itineraries, and manage budgets
-              using real-time API integrations.
-            </p>
-            <a href="https://github.com/krutarthdubey/tripplannr" target="_blank" class="btn-secondary mt-4">
-              View Project
+            <h3 class="text-lg font-semibold text-accent">YouTube Clone</h3>
+            <p class="text-sm text-textMuted mt-2">A full-stack video platform with channel creation, video uploads, search, likes, comments, subscriptions, and a creator dashboard, using JWT-protected routes. Built with React, Express, and MongoDB.</p>
+            <a href="https://github.com/krutarthdubey/YouTube-Clone-MERN" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-4">
+              Source Code
             </a>
           </div>
         </div>
